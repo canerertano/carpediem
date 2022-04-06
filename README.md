@@ -61,8 +61,8 @@ http://localhost:8080/actuator/health
 - [x] Logback configuration
 - [x] Dockerization
 - [x] Readme file
-- [ ] Checkstyle configuration
-- [ ] Jacoco configuration
+- [x] Checkstyle configuration
+- [x] Jacoco configuration
 - [ ] Configuring Api Doc (spring-doc || swagger ui)
 - [ ] Spock testing
 - [ ] Exception handling
