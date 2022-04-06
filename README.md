@@ -24,24 +24,32 @@ You can set the active profile via VM arguments;
 #### Using Docker
 Make sure your Docker Deamon up and running.
 
-Create image by running this maven command;
+Create jar file by running this maven command;
 ```shell
-mvn spring-boot:build-image
+mvn clean package
+```
+
+Create image by running this docker command in the directory where Dokerfile resides;
+```shell
+docker build --tag=carpediem-skeleton:v1 .
 ```
 
 After image builds you can run this docker command to run the application in a container;
 ```shell
-docker run -e "SPRING_PROFILES_ACTIVE=dev" -p 8080:8080 -t carpediem/skeleton:0.0.1-SNAPSHOT
+docker run -e "SPRING_PROFILES_ACTIVE=dev" -p 8080:8080 -t carpediem-skeleton:v1
 ```
+
+Visit the path below;
+
+http://localhost:8080/actuator/health
 
 ### Used Libraries
 
 - Spring Boot
 
-  - Web, Actuator, Data JPA, Validation, Config, Test, Dev tools
+  - Web, Actuator, Data JPA, Validation, Test, Dev tools
 - H2 database
 - Lombok
-- Logback
 - Mapstruct
 
 ### Roadmap
@@ -69,7 +77,8 @@ docker run -e "SPRING_PROFILES_ACTIVE=dev" -p 8080:8080 -t carpediem/skeleton:0.
 - KeyCloak
 - Redis 
 - Message Queue 
+- Config Client (Spring cloud config)
 - OpenFeign (Rest calls)
 - Sleuth / Zipkin (Distributed tracing)
-- Eureka Client (Spring cloud discovery )
+- Eureka Client (Spring cloud discovery)
 - Resilience4j (Spring cloud circuit breaker)

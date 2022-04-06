@@ -16,13 +16,6 @@
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
-        <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
-            <jsonFormatter
-                    class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
-                <prettyPrint>true</prettyPrint>
-            </jsonFormatter>
-            <timestampFormat>yyyy-MM-dd' 'HH:mm:ss.SSS</timestampFormat>
-        </layout>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_PATH}/${LOG_FILE}_%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
