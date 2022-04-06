@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: carpediem-skeleton
+  config:
+    import: optional:configserver:http://localhost:8888
+  cloud:
+    config:
+      profile: ${spring.profiles.active}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  file:
+    path: logs
+    name: ${spring.application.name}
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger|%thread] %logger - %msg %n%rEx{full,org.springframework,org.apache,java.lang,java.util,sun.reflect,javax.servlet}"
+    console: ${logging.pattern.file}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
+  datasource:
+    url: jdbc:h2:mem:carpediemdb
+    username: sa
+    password: sa
+  h2:
+    console:
+      enabled: true
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+logging:
+  level:
+    root: WARN
+
+server:
+  port: 8090
