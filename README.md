@@ -53,7 +53,7 @@ http://localhost:8080/skeletonapp/swagger-ui/index.html
 
 - Spring Boot
 
-  - Web, Actuator, Data JPA, Validation, Test, Dev tools
+  - Web, Actuator, Data JPA, Validation, Test, Dev tools, Spring Doc 
 - H2 database
 - Lombok
 - Mapstruct
@@ -74,10 +74,10 @@ http://localhost:8080/skeletonapp/swagger-ui/index.html
 - [x] H2 Database
 - [ ] MariaDB
 - [ ] Spock testing
-- [ ] Flyway dependency
+- [ ] Flyway database management
 - [x] Additional Examples
   - [x] Creating a use case with sample classes and components
-  - [ ] Flyway
+  - [ ] Flyway migration use case
 
 ### Possible Extensions
 
