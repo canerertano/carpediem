@@ -2,6 +2,10 @@ spring:
   application:
     name: carpediem-skeleton
 
+server:
+  servlet:
+    contextPath: /skeletonapp
+
 management:
   endpoints:
     web:
@@ -15,3 +19,7 @@ logging:
   pattern:
     file: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger|%thread] %logger - %msg %n%rEx{full,org.springframework,org.apache,java.lang,java.util,sun.reflect,javax.servlet}"
     console: ${logging.pattern.file}
+
+springdoc:
+  api-docs:
+    path: "/api-docs"

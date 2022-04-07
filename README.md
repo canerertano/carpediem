@@ -41,7 +41,13 @@ docker run -e "SPRING_PROFILES_ACTIVE=dev" -p 8080:8080 -t carpediem-skeleton:v1
 
 Visit the path below;
 
-http://localhost:8080/actuator/health
+http://localhost:8080/skeletonapp/actuator/health
+
+### API Documentation
+
+After running the application visit the url below;
+
+http://localhost:8080/skeletonapp/swagger-ui/index.html 
 
 ### Used Libraries
 
@@ -63,17 +69,18 @@ http://localhost:8080/actuator/health
 - [x] Readme file
 - [x] Checkstyle configuration
 - [x] Jacoco configuration
-- [ ] Configuring Api Doc (spring-doc || swagger ui)
+- [x] Configuring Api Doc (spring-doc)
+- [x] Exception handling
+- [x] H2 Database
+- [ ] MariaDB
 - [ ] Spock testing
-- [ ] Exception handling
 - [ ] Flyway dependency
-- [ ] Additional Examples
-  - [ ] Creating a use case with sample classes and components
+- [x] Additional Examples
+  - [x] Creating a use case with sample classes and components
   - [ ] Flyway
 
 ### Possible Extensions
 
-- MariaDB
 - KeyCloak
 - Redis 
 - Message Queue 
