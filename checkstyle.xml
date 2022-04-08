@@ -18,11 +18,11 @@
         <module name="RedundantImport">
             <property name="severity" value="error"/>
         </module>
-        <module name="IllegalImport" />
-        <module name="UnusedImports" />
+        <module name="IllegalImport"/>
+        <module name="UnusedImports"/>
 
         <module name="NeedBraces">
-            <property name="tokens" value="LITERAL_IF, LITERAL_ELSE" />
+            <property name="tokens" value="LITERAL_IF, LITERAL_ELSE"/>
         </module>
 
         <module name="EmptyBlock">
@@ -39,7 +39,8 @@
 
         <module name="RightCurly">
             <property name="option" value="alone"/>
-            <property name="tokens" value="CLASS_DEF, METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO, STATIC_INIT, INSTANCE_INIT"/>
+            <property name="tokens"
+                      value="CLASS_DEF, METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO, STATIC_INIT, INSTANCE_INIT"/>
         </module>
 
         <module name="RightCurly">
@@ -120,9 +121,9 @@
         </module>
 
         <module name="MemberName">
-            <property name="applyToPublic" value="false" />
-            <property name="applyToPackage" value="false" />
-            <property name="applyToProtected" value="false" />
+            <property name="applyToPublic" value="false"/>
+            <property name="applyToPackage" value="false"/>
+            <property name="applyToProtected" value="false"/>
             <property name="format" value="^[a-z0-9][a-zA-Z0-9]*$"/>
             <message key="name.invalidPattern"
                      value="Member name ''{0}'' must match pattern ''{1}''."/>
@@ -157,9 +158,9 @@
         <module name="DeclarationOrder"/>
 
         <module name="EmptyLineSeparator">
-            <property name="allowMultipleEmptyLinesInsideClassMembers" value="false" />
-            <property name="allowMultipleEmptyLines" value="false" />
-            <property name="allowNoEmptyLineBetweenFields" value="true" />
+            <property name="allowMultipleEmptyLinesInsideClassMembers" value="false"/>
+            <property name="allowMultipleEmptyLines" value="false"/>
+            <property name="allowNoEmptyLineBetweenFields" value="true"/>
         </module>
 
     </module>

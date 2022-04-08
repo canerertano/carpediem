@@ -8,6 +8,7 @@ import com.carpediem.skeleton.mapper.UserMapper;
 import com.carpediem.skeleton.model.dto.UserDto;
 import com.carpediem.skeleton.model.enumaration.StatusEnum;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -24,24 +25,18 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
-    public Page<UserDto> getAllUsers(Pageable pageable) {
-        final Page<User> userPage = userRepository.findAll(pageable);
+    public Page<UserDto> getUsers(Pageable pageable, String status) {
+        Page<User> userPage;
+        Optional<StatusEnum> statusOpt = resolveStatus(status);
 
-        final List<UserDto> userDtoList = userMapper.mapToDtoList(userPage.getContent());
-
-        return new PageImpl<>(userDtoList, pageable, userPage.getTotalElements());
-    }
-
-    public List<UserDto> getAllActiveUsers(String status) {
-        StatusEnum enumValue = StatusEnum.fromValue(status);
-
-        if (Objects.isNull(enumValue)) {
-            throw new InvalidRequestException(String.format("Given status is not valid : %s", status));
+        if (statusOpt.isPresent()) {
+            userPage = userRepository.findAllByStatus(pageable, statusOpt.get());
+        } else {
+            userPage = userRepository.findAll(pageable);
         }
 
-        final List<User> activeUserList = userRepository.findAllByStatus(enumValue);
-
-        return userMapper.mapToDtoList(activeUserList);
+        final List<UserDto> userDtoList = userMapper.mapToDtoList(userPage.getContent());
+        return new PageImpl<>(userDtoList, pageable, userPage.getTotalElements());
     }
 
     public UserDto getUserById(Long id) {
@@ -51,5 +46,18 @@ public class UserService {
                 new ResourceNotFoundException(String.format("User not found with the id : %s", id)));
 
         return userMapper.mapToDto(user);
+    }
+
+    private Optional<StatusEnum> resolveStatus(String status) {
+
+        if (StringUtils.isNoneEmpty(status)) {
+            StatusEnum enumValue = StatusEnum.fromValue(status);
+
+            if (Objects.isNull(enumValue)) {
+                throw new InvalidRequestException(String.format("Given status is not valid : %s", status));
+            }
+            return Optional.of(enumValue);
+        }
+        return Optional.empty();
     }
 }

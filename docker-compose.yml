@@ -12,7 +12,7 @@ services:
     environment:
       - "SPRING_PROFILES_ACTIVE=test"
     depends_on:
-          - carpediem-mariadb
+      - carpediem-mariadb
 
   carpediem-mariadb:
     image: mariadb:10.7
