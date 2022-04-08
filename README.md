@@ -67,21 +67,21 @@ Run applicaiton and mariadb containers by running the command;
 docker compose up -d
 ```
 
-### Access running application
+## Access running application
 
-#### Health Check
+### Health Check
 
 Visit the path below;
 
 http://localhost:8080/skeletonapp/actuator/health
 
-#### API Documentation
+### API Documentation
 
 After running the application visit the url below;
 
 http://localhost:8080/skeletonapp/swagger-ui/index.html
 
-### Used Libraries
+## Used Libraries
 
 - Spring Boot
 
@@ -91,7 +91,7 @@ http://localhost:8080/skeletonapp/swagger-ui/index.html
 - Lombok
 - Mapstruct
 
-### Roadmap
+## Roadmap
 
 - [x] Package structure
 - [x] Maven dependency management
@@ -112,7 +112,7 @@ http://localhost:8080/skeletonapp/swagger-ui/index.html
     - [x] Creating a use case with sample classes and components
     - [ ] Flyway migration use case
 
-### Possible Extensions
+## Possible Extensions
 
 - KeyCloak
 - Redis
