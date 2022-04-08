@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  carpediem-skeleton:
+    build:
+      dockerfile: Dockerfile
+    image: carpediem-skeleton:v1
+    container_name: carpediem-skeleton
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=test"
+    depends_on:
+          - carpediem-mariadb
+
+  carpediem-mariadb:
+    image: mariadb:10.7
+    container_name: carpediem-mariadb
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root-pass"
+      - "MYSQL_DATABASE=testdb"
+      - "MYSQL_USER=user"
+      - "MYSQL_PASSWORD=pass"

@@ -1,16 +1,16 @@
-## Skeleton Project for Spring Boot Microservices
+# Skeleton Project for Spring Boot Microservices
 
 It's a minimal project reference for new Spring Boot microservices projects.
 Components can be subtracted/added depending on the real project requirements.
 
-### Requirements
+## Requirements
 
 - JDK 17 
 - Your Favorite IDE
 
-### Building & Running Application
+## Building & Running Application
 
-#### Using IDE 
+### IDE (Dev Profile)
 
 First import project as maven project into IDE.
 
@@ -21,7 +21,7 @@ You can set the active profile via VM arguments;
 -Dspring.profiles.active=dev
 ```
 
-#### Using Docker
+### Docker (Dev Profile)
 Make sure your Docker Deamon up and running.
 
 Create jar file by running this maven command;
@@ -39,11 +39,33 @@ After image builds you can run this docker command to run the application in a c
 docker run -e "SPRING_PROFILES_ACTIVE=dev" -p 8080:8080 -t carpediem-skeleton:v1
 ```
 
+### Docker Compose (Test Profile)
+
+There is MariaDB connectivity within the test profile. Please follow preceding instructions in order to run the application.  
+
+Create jar file by running this maven command;
+```shell
+mvn clean package
+```
+
+Build images by running the command;
+```shell
+docker compose build
+```
+
+Run applicaiton and mariadb containers by running the command;
+```shell
+docker compose up -d
+```
+
+### Access running application
+#### Health Check
+
 Visit the path below;
 
 http://localhost:8080/skeletonapp/actuator/health
 
-### API Documentation
+#### API Documentation
 
 After running the application visit the url below;
 
@@ -55,6 +77,7 @@ http://localhost:8080/skeletonapp/swagger-ui/index.html
 
   - Web, Actuator, Data JPA, Validation, Test, Dev tools, Spring Doc 
 - H2 database
+- Mariadb
 - Lombok
 - Mapstruct
 
@@ -72,7 +95,7 @@ http://localhost:8080/skeletonapp/swagger-ui/index.html
 - [x] Configuring Api Doc (spring-doc)
 - [x] Exception handling
 - [x] H2 Database
-- [ ] MariaDB
+- [x] MariaDB
 - [ ] Spock testing
 - [ ] Flyway database management
 - [x] Additional Examples
@@ -83,7 +106,8 @@ http://localhost:8080/skeletonapp/swagger-ui/index.html
 
 - KeyCloak
 - Redis 
-- Message Queue 
+- Message Queue
+- ELK integration
 - Config Client (Spring cloud config)
 - OpenFeign (Rest calls)
 - Sleuth / Zipkin (Distributed tracing)

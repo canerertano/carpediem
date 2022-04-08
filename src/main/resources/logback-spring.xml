@@ -27,7 +27,7 @@
         <appender-ref ref="ROLLING-FILE-APPENDER"/>
     </appender>
 
-    <springProfile name="dev">
+    <springProfile name="!prod">
         <logger name="com.carpediem.skeleton" level="${LOG_LEVEL}">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="ASYNC-FILE-APPENDER"/>

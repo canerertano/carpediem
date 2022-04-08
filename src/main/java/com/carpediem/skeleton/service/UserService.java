@@ -35,7 +35,7 @@ public class UserService {
     public List<UserDto> getAllActiveUsers(String status) {
         StatusEnum enumValue = StatusEnum.fromValue(status);
 
-        if(Objects.isNull(enumValue)){
+        if (Objects.isNull(enumValue)) {
             throw new InvalidRequestException(String.format("Given status is not valid : %s", status));
         }
 
@@ -44,7 +44,7 @@ public class UserService {
         return userMapper.mapToDtoList(activeUserList);
     }
 
-    public UserDto getUserById(Long id){
+    public UserDto getUserById(Long id) {
         final Optional<User> userOpt = userRepository.findById(id);
 
         final User user = userOpt.orElseThrow(() ->

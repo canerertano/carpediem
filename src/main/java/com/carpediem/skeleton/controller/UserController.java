@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -34,7 +35,6 @@ public class UserController {
         return userService.getAllUsers(pageable);
     }
 
-
     @Operation(summary = "Retrieve all users by status")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved all users by status"),
@@ -52,7 +52,7 @@ public class UserController {
             @ApiResponse(responseCode = "500", description = "Unexpected server error")
     })
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserDto getUserById(@PathVariable @NotNull Long id){
+    public UserDto getUserById(@PathVariable @NotNull Long id) {
         return userService.getUserById(id);
     }
 }

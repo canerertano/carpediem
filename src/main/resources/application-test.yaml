@@ -5,17 +5,17 @@ spring:
   jpa:
     show-sql: true
     defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
   datasource:
-    url: jdbc:h2:mem:carpediemdb
-    username: sa
-    password: sa
-  h2:
-    console:
-      enabled: true
+    url: jdbc:mariadb://carpediem-mariadb:3306/testdb
+    username: user
+    password: pass
+    driver-class-name: org.mariadb.jdbc.Driver
 
 server:
   port: 8080
 
 logging:
   level:
-    root: TRACE
+    root: DEBUG

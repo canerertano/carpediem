@@ -40,7 +40,7 @@ public class ExceptionHandlerControllerAdvice {
                 HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    private ErrorResponse getErrorResponse(ErrorCode errorCode, String errorMessage){
+    private ErrorResponse getErrorResponse(ErrorCode errorCode, String errorMessage) {
         return ErrorResponse.builder()
                 .code(errorCode)
                 .message(errorMessage).build();
