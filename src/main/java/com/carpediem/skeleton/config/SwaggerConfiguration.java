@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class SwaggerConfiguration {
 
     @Bean
-    public OpenAPI customerServiceOpenAPI() {
+    public OpenAPI carpediemSkeletonOpenAPI() {
         return new OpenAPI()
                 .info(new Info().title("Carpediem Skeleton Project")
                         .description("It's a minimal project reference for new Spring Boot microservices projects")
