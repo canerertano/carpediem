@@ -106,7 +106,7 @@ http://localhost:8080/skeletonapp/swagger-ui/index.html
 - [x] Exception handling
 - [x] H2 Database
 - [x] MariaDB
-- [ ] Spock testing
+- [x] Spock testing
 - [ ] Flyway database management
 - [x] Additional Examples
     - [x] Creating a use case with sample classes and components
